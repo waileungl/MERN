@@ -48,9 +48,7 @@ const Survey = (props) => {
     }
 
     const InputColorful = props => {
-        const {input} = useParams();
-        const {fontColor} = useParams();
-        const {backgroundColor} = useParams();
+        const {input, fontColor, backgroundColor} = useParams();
         if (isNaN(input)){
             return(
                 <>
