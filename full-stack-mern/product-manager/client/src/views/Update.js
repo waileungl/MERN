@@ -8,6 +8,7 @@ const Update = props => {
     const [title, setTitle] = useState(""); 
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
+    const { people, setPeople } = props;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -28,7 +29,10 @@ const Update = props => {
         }
         axios.put(`http://localhost:8000/api/people/${id}`, updatedProduct)
             .then(
-                navigate("/people")
+                res => {
+                    setPeople([...people, res.data])
+                    navigate("/people")
+                }
             )
     }
 
